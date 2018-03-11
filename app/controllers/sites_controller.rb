@@ -73,6 +73,10 @@ class SitesController < ApplicationController
     redirect_to url
   end
 
+  def generate_short_path
+    render json: { short_path: Site.generate_short_path }
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_site
