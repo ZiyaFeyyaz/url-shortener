@@ -1,7 +1,7 @@
 <%= form_with(model: site, local: true) do |form| %>
   <% if site.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(site.errors.count, "error") %> prohibited this site from being saved:</h2>
+    <div class="alert alert-danger">
+      <h3><%= pluralize(site.errors.count, "error") %> prohibited this site from being saved:</h3>
 
       <ul>
       <% site.errors.full_messages.each do |message| %>
@@ -11,18 +11,22 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :origin_url %>
-    <%= form.text_field :origin_url, id: :site_origin_url %>
+  <div class="form-group row">
+    <%= form.label :origin_url, class: 'col-sm-2 col-form-label' %>
+    <div class="col-sm-10">
+      <%= form.text_field :origin_url, id: :site_origin_url, class: 'form-control' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :short_path %>
-    <%= form.text_field :short_path, id: :site_short_path %>
-    <%= form.button t('generate'), id: :genShortPathBtn, type: 'button' %>
+  <div class="form-group row">
+    <%= form.label :short_path, class: 'col-sm-2 col-form-label' %>
+    <div class="col-sm-8">
+      <%= form.text_field :short_path, id: :site_short_path, class: 'form-control' %>
+    </div>
+    <div class="col-sm-2">
+      <%= form.button t('generate'), id: :genShortPathBtn, type: 'button', class: 'form-control btn btn-success' %>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <%= form.submit class: 'btn btn-primary' %>
 <% end %>

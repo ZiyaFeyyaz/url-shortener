@@ -1,19 +1,21 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <p id="notice" class="text-success"><%= notice %></p>
 
-<p>
-  <strong>Origin url:</strong>
-  <%= @site.origin_url %>
-</p>
+  <p>
+    <strong>Origin url:</strong>
+    <%= @site.origin_url %>
+  </p>
 
-<p>
-  <strong>Short path:</strong>
-  <%= @site.short_path %>
-</p>
+  <p>
+    <strong>Short path:</strong>
+    <%= @site.short_path %>
+  </p>
 
-<p>
-  <strong>Usage amount:</strong>
-  <%= @site.usage_amount %>
-</p>
+  <p>
+    <strong>Usage amount:</strong>
+    <%= @site.usage_amount %>
+  </p>
 
-<%= link_to 'Edit', edit_site_path(@site) %> |
-<%= link_to 'Back', sites_path %>
+  <%= link_to 'Edit', edit_site_path(@site), class: 'btn btn-primary' %>
+  <%= link_to 'Back', sites_path, class: 'btn btn-primary' %>
+</div>
