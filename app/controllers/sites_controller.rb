@@ -61,6 +61,18 @@ class SitesController < ApplicationController
     end
   end
 
+  def goto_origin_url
+    site = Site.find_by short_path: params[:short_path]
+    url =
+      if site.blank?
+        '/'
+      else
+        site.increse_usage_amount
+        site.origin_url =~ /^(http|https)/ ? site.origin_url : "http://#{site.origin_url}"
+      end
+    redirect_to url
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_site
